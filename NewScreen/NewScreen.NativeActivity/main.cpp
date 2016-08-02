@@ -32,10 +32,7 @@ std::shared_ptr<BaseScreen> createScreen(ScreenChooser const &chooser, Minecraft
 	std::unique_ptr<UIControlFactory> fac = std::unique_ptr<UIControlFactory>(factory);
 
 	ScreenView *view = new ScreenView(*namereg, client.keyboardManager, controller, cont, std::move(fac));
-
-	//std::shared_ptr<ScreenView> screen =
-	//	std::make_shared<ScreenView, NameRegistry &, KeyboardManager &, std::shared_ptr<ScreenController> &, std::shared_ptr<UIControl> &, std::unique_ptr<UIControlFactory>>(
-	//	*namereg, *client.keyboardManager, controller, cont, std::move(fac)); /// CRASH ///
+	std::shared_ptr<ScreenView> screen(view);
 
 	LOGI("%s", view->getScreenName().c_str());
 
